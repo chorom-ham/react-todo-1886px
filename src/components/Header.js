@@ -5,6 +5,15 @@ export default function Header() {
 }
 
 const StlyedHeader = styled.header`
+  @font-face {
+    font-family: 'S-CoreDream-2ExtraLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  font-family: 'S-CoreDream-2ExtraLight';
+  
   background-color: #00462a;
   color: #ffffff;
   font-size: 2rem;
