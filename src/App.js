@@ -12,8 +12,8 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     width: 100%;
-    background-color : #F6FFDB;
     margin: 0;
+    background-color: rgb(57,81, 156);
   }
 `;
 
