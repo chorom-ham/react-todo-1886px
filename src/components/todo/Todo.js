@@ -7,5 +7,24 @@ import Item from "./Item";
 export default function Todo() {
   const [todoList, setTodoList] = useState([]);
 
-  return <div>벗들 파이팅 :)</div>;
+  return(
+      <StyledTodo>
+        <Title>ToDo List</Title>
+        <Form />
+      </StyledTodo>
+  );
 }
+
+const StyledTodo = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 10rem auto;
+`;
+
+const Title = styled.h1`
+  font-size: 6rem;
+  font-weight: 700;
+  color: white;
+  margin: 1rem;
+`;
