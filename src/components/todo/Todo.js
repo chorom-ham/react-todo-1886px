@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import styled from "styled-components";
 
 import Form from "./Form";
@@ -16,11 +17,16 @@ export default function Todo() {
     setTodoList(todos);
   };
 
+  const deleteTodo = (value) => {
+    const todos = todoList.filter((todo) => todo.value !== value);
+    setTodoList(todos);
+  };
+
   return (
     <Main>
       <Form pushTodo={pushTodo} />
       <TodoTitle>할 일 목록</TodoTitle>
-      <Item todoList={todoList} />
+      <Item todoList={todoList} deleteTodo={deleteTodo} />
     </Main>
   );
 }
