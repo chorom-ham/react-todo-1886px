@@ -1,5 +1,6 @@
+import React from "react";
 import styled, { css } from "styled-components";
-import { MdCheck } from "react-icons/md";
+import { MdCheck, MdDelete } from "react-icons/md";
 // 각 할 일에 대한 정보
 
 // Hint: props로 id, text, onClick 등 (자유)
@@ -8,7 +9,9 @@ export default function Item({ id, done, text }) {
     <TodoItem>
       <CheckCircle done={done}>{done && <MdCheck />}</CheckCircle>
       <Text done={done}>{text}</Text>
-      <DeleteButton>삭제</DeleteButton>
+      <DeleteButton>
+        <MdDelete />
+      </DeleteButton>
     </TodoItem>
   );
 }
@@ -47,6 +50,17 @@ const Text = styled.div`
 `;
 
 const DeleteButton = styled.button`
-  color: red;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: gray;
+  font-size: 20px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
   margin-right: 10px;
+
+  &:hover {
+    color: #81f7d8;
+  }
 `;
