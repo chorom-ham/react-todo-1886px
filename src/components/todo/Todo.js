@@ -12,7 +12,7 @@ export default function Todo() {
   const pushTodo = (value) => {
     const todos = todoList;
     const todo = { id, value };
-    setId(id + 1);
+    setId((current) => current + 1);
     todos.push(todo);
     setTodoList(todos);
   };
