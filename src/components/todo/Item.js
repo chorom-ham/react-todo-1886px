@@ -6,17 +6,17 @@ import { MdCheck, MdDelete } from "react-icons/md";
 // Hint: props로 id, text, onClick 등 (자유)
 export default function Item({ id, done, text }) {
   return (
-    <TodoItem>
+    <TodoItemBlock>
       <CheckCircle done={done}>{done && <MdCheck />}</CheckCircle>
       <Text done={done}>{text}</Text>
       <DeleteButton>
         <MdDelete />
       </DeleteButton>
-    </TodoItem>
+    </TodoItemBlock>
   );
 }
 
-const TodoItem = styled.div`
+const TodoItemBlock = styled.div`
   display: flex;
   align-items: center;
   padding: 1rem;

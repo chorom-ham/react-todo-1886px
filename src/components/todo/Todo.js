@@ -9,6 +9,7 @@ export default function Todo() {
 
   return (
     <TodoBlock>
+      <Form />
       <Item text="할 일 1번" done={true} />
       <Item text="할 일 2번" done={true} />
       <Item text="할 일 3번" done={false} />
