@@ -23,8 +23,16 @@ export default function Form({ pushTodo }) {
   );
 }
 
-const TodoForm = styled.form``;
+const TodoForm = styled.form`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 4rem 0;
+`;
 
 const AddButton = styled.button``;
 
-const TodoInput = styled.input``;
+const TodoInput = styled.input`
+  width: 94%;
+  height: 5rem;
+`;

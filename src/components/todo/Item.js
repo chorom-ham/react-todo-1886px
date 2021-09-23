@@ -6,11 +6,7 @@ import styled from "styled-components";
 export default function Item({ todoList, deleteTodo }) {
   const todoLabel = useRef([]);
 
-  const handleClick = (index) => {
-    // let label = event.target.previousSibling;
-    // if (!label) {
-    //   label = event.target.parentElement.previousSibling;
-    // }
+  const handleDeleteClick = (index) => {
     const value = todoLabel.current[index].innerText;
     deleteTodo(value);
   };
@@ -26,7 +22,10 @@ export default function Item({ todoList, deleteTodo }) {
           >
             {todo.value}
           </StyledLabel>
-          <IoCloseOutline onClick={() => handleClick(index)} />
+          <IoCloseOutline
+            size="2rem"
+            onClick={() => handleDeleteClick(index)}
+          />
         </TodoList>
       ))}
     </TodoLists>
@@ -34,6 +33,16 @@ export default function Item({ todoList, deleteTodo }) {
 }
 
 const TodoLists = styled.div``;
-const TodoList = styled.div``;
-const Checkbox = styled.input``;
-const StyledLabel = styled.label``;
+const TodoList = styled.div`
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+`;
+const Checkbox = styled.input`
+  transform: scale(1.5);
+  margin: 0 1rem;
+`;
+const StyledLabel = styled.label`
+  margin-right: 0.5rem;
+`;

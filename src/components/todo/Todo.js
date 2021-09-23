@@ -25,12 +25,21 @@ export default function Todo() {
   return (
     <Main>
       <Form pushTodo={pushTodo} />
-      <TodoTitle>할 일 목록</TodoTitle>
+      <TodoTitle>할 일 목록 ✍</TodoTitle>
       <Item todoList={todoList} deleteTodo={deleteTodo} />
     </Main>
   );
 }
 
-const Main = styled.div``;
+const Main = styled.div`
+  max-width: 80rem;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+`;
 
-const TodoTitle = styled.h1``;
+const TodoTitle = styled.h1`
+  margin: 0;
+  margin-bottom: 4rem;
+`;
