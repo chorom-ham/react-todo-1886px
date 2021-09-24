@@ -10,7 +10,7 @@ function Todo() {
     const TodoList = () => {
         return (
             todoList.map((content, index) =>
-                <Item content={content} />
+                <Item content={content} todoList={todoList} setTodoList={setTodoList} reset={TodoList}/>
             )
         );
     };

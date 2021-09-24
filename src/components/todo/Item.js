@@ -3,11 +3,18 @@ import {FaRegCircle, FaTimesCircle as RemoveItemIcon} from "react-icons/fa";
 import {useRef, useState} from "react";
 
 // Hint: props로 id, text, onClick 등 (자유)
-export default function Item({content}) {
+export default function Item({content, todoList, setTodoList, TodoList}) {
     const [state, setState] = useState('undone');
 
     const changeState = () => {
         setState(state === 'undone' ? 'done' : 'undone');
+    };
+
+    const removeItem = (e) => {
+        // const currentIndex = todoList.indexOf(content);
+        // const updatedList = todoList.splice(currentIndex, 1);
+        // setTodoList(updatedList);
+        setTodoList(todoList.filter(item => item !== content));
     };
 
     return (
@@ -16,7 +23,7 @@ export default function Item({content}) {
                 <ContentIcon value={state}/>
                 {content}
             </ContentButton>
-            <RemoveItemButton value={state}>
+            <RemoveItemButton value={state} onClick={removeItem}>
                 <RemoveItemIcon />
             </RemoveItemButton>
         </StyledItem>
