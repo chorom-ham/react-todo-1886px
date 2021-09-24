@@ -81,8 +81,8 @@ const ContentButton = styled.button`
 `;
 
 const ContentIcon = styled(FaRegCircle)`
-  width: 2rem;
-  height: 2rem;
+  width: 1.3rem;
+  height: 1.3rem;
   margin-right: 1.5rem;
   fill: #f63af0;
 
