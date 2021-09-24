@@ -33,7 +33,6 @@ const TodoForm = styled.form`
 const AddButton = styled.button`
   border: 0.8rem solid #00462a;
   font-weight: 600;
-  padding: 0 2rem;
   border-left: none;
   width: 8rem;
 `;
