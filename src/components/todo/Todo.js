@@ -4,15 +4,24 @@ import styled from "styled-components";
 import Form from "./Form";
 import Item from "./Item";
 
-export default function Todo() {
-  const [todoList, setTodoList] = useState([]);
+function Todo() {
+    const [todoList, setTodoList] = useState([]);
 
-  return(
-      <StyledTodo>
-        <Title>ToDo List</Title>
-        <Form />
-      </StyledTodo>
-  );
+    const TodoList = () => {
+        return (
+            todoList.map((content, index) =>
+                <Item content={content} />
+            )
+        );
+    };
+
+    return (
+        <StyledTodo>
+            <Title>ToDo List</Title>
+            <Form todoList={todoList} setTodoList={setTodoList}/>
+            <TodoList />
+        </StyledTodo>
+    );
 }
 
 const StyledTodo = styled.div`
@@ -26,5 +35,7 @@ const Title = styled.h1`
   font-size: 6rem;
   font-weight: 700;
   color: white;
-  margin: 1rem;
+  margin: 0;
 `;
+
+export default Todo;
