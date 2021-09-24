@@ -7,5 +7,9 @@ import Item from "./Item";
 export default function Todo() {
   const [todoList, setTodoList] = useState([]);
 
-  return <div>벗들 파이팅 :)</div>;
+  return (
+    <div>
+      <Form />
+    </div>
+  );
 }
