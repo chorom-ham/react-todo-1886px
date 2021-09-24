@@ -35,9 +35,9 @@ const StyledTodo = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 6rem;
-  font-weight: 700;
-  margin: 4rem 1rem 0;
+  font-size: 8rem;
+  font-weight: 900;
+  margin: 2rem 1rem 0;
   color: rgb(7, 26, 82);
 `;
 

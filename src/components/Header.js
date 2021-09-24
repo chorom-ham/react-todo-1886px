@@ -16,7 +16,7 @@ const StyledHeader = styled.header`
   background-color: transparent;
   color: rgb(99, 123, 195);
   font-size: 1.5rem;
-  height: 6rem;
+  height: 4rem;
   display: flex;
   align-items: center;
   justify-content: flex-end;

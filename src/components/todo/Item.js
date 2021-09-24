@@ -32,10 +32,10 @@ export default function Item({content, todoList, setTodoList, TodoList}) {
 
 const StyledItem = styled.div`
   display: inline-flex;
-  height: 5rem;
+  height: fit-content;
   width: 98%;
   padding: 0 2rem;
-  margin: 0.5rem auto;
+  margin: 0.3rem auto;
   border-radius: 1.5rem;
   font-size: 1.5rem;
   align-items: center;
@@ -64,6 +64,10 @@ const ContentButton = styled.button`
   flex-grow: 1;
   border: none;
   background-color: transparent;
+  padding: 0.5rem 0;
+  white-space: pre-line;
+  word-wrap: break-word;
+  flex-wrap: nowrap;
   
   //text css
   ${props => 

@@ -37,10 +37,9 @@ const StyledForm = styled.div`
   display: inline-flex;
   background-color: rgb(156, 180, 249, 0.3);
   border-radius: 1.6rem;
-  height: 4rem;
   padding: 1rem;
   align-items: center;
-  margin: 1rem 0 1.5rem;
+  margin: 1rem 0;
 `;
 
 const ItemInput = styled.input`
