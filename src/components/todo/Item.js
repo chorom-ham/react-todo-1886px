@@ -1,6 +1,6 @@
 import styled, {css} from "styled-components";
 import {FaRegCircle, FaTimesCircle} from "react-icons/fa";
-import {useRef, useState} from "react";
+import {useState} from "react";
 
 // Hint: props로 id, text, onClick 등 (자유)
 export default function Item({content, todoList, setTodoList, TodoList}) {
@@ -98,7 +98,7 @@ const RemoveItemButton = styled.button`
 `;
 
 const RemoveItemIcon = styled(FaTimesCircle)`
-  transition-duration: 0.2s;
+  transition-duration: 0.1s;
   fill: transparent;
 
   &:hover{
@@ -110,6 +110,5 @@ const RemoveItemIcon = styled(FaTimesCircle)`
           fill: rgb(57,81, 156);
     `}
   }
-  
 `;
 

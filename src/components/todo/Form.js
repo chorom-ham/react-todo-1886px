@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {FaPlus} from "react-icons/fa";
-import Todo from "./Todo.js";
 import {useState} from "react";
 
 // Hint: Form, Input, Button
