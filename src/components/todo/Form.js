@@ -35,18 +35,20 @@ export default function Form({todoList, setTodoList}) {
 
 const StyledForm = styled.div`
   display: inline-flex;
-  background-color: rgb(156, 180, 249, 0.3);
-  border-radius: 1.6rem;
-  padding: 0.5rem;
+  background-color: rgb(7, 26, 82);
+  border-radius: 1rem;
+  padding: 0.3rem;
   align-items: center;
   margin: 1rem 0;
+  color: white;
 `;
 
 const ItemInput = styled.input`
   ::placeholder {
-    color: #8fabff;
+    color: rgb(194, 209, 255, 0.5);
   }
-
+  
+  color: white;
   flex-grow: 1;
   margin-right: 1rem;
   border: none;
@@ -60,7 +62,7 @@ const AddItemButton = styled.button`
   background: transparent;
   border: none;
   transition-duration: 0.2s;
-  color: #8fabff;
+  color: white;
   padding-top: 0.2rem;
   
   &:hover {
