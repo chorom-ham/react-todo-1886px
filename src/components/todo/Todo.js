@@ -37,9 +37,11 @@ const Main = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  font-size: 1.6rem;
 `;
 
-const TodoTitle = styled.h1`
+const TodoTitle = styled.h2`
   margin: 0;
   margin-bottom: 4rem;
+  margin-left: 0.5rem;
 `;

@@ -30,9 +30,17 @@ const TodoForm = styled.form`
   margin: 4rem 0;
 `;
 
-const AddButton = styled.button``;
+const AddButton = styled.button`
+  border: 0.8rem solid #00462a;
+  font-weight: 600;
+  padding: 0 2rem;
+  border-left: none;
+  width: 8rem;
+`;
 
 const TodoInput = styled.input`
-  width: 94%;
+  width: 100%;
   height: 5rem;
+  border: 0.8rem solid #00462a;
+  padding-left: 1rem;
 `;

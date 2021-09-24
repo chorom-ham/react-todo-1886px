@@ -45,9 +45,10 @@ export default function Item({ todoList, deleteTodo, checkStyle }) {
   );
 }
 
-const TodoLists = styled.div``;
+const TodoLists = styled.div`
+  margin-left: 0.5rem;
+`;
 const TodoList = styled.div`
-  font-size: 1.6rem;
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
