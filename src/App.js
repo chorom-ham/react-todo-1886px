@@ -1,5 +1,4 @@
 import styled, { createGlobalStyle } from "styled-components";
-
 import Header from "./components/Header.js";
 import Todo from "./components/todo/Todo";
 
@@ -12,8 +11,8 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     width: 100%;
-    background-color : #F6FFDB;
     margin: 0;
+    background-color: rgb(0, 15, 61);
   }
 `;
 
@@ -28,7 +27,15 @@ function App() {
 }
 
 const Wrapper = styled.div`
-  width: 100%;
+  @font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  font-family: 'Pretendard-Regular';
 `;
 
 export default App;
+
