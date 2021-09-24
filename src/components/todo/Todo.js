@@ -9,6 +9,7 @@ export default function Todo() {
   const [id, setId] = useState(0);
   const [todoList, setTodoList] = useState([]);
 
+  // 새로운 todo를 배열에 추가하고 todo List 업데이트
   const pushTodo = (value) => {
     const todos = todoList;
     const todo = { id, value };
