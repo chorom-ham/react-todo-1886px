@@ -35,11 +35,11 @@ export default function Form({todoList, setTodoList}) {
 
 const StyledForm = styled.div`
   display: inline-flex;
-  background-color: rgb(7, 26, 82);
-  border-radius: 1rem;
-  padding: 0.3rem;
+  background-color: rgb(8, 31, 99);
+  border-radius: 5rem;
+  padding: 1.3rem;
   align-items: center;
-  margin: 1rem 0;
+  margin: 0.5rem 0 1rem;
   color: white;
 `;
 
