@@ -1,5 +1,4 @@
 import styled, { createGlobalStyle } from "styled-components";
-
 import Header from "./components/Header.js";
 import Todo from "./components/todo/Todo";
 
@@ -13,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     width: 100%;
     margin: 0;
-    background-color: rgb(57,81, 156);
+    background-color: rgb(7, 26, 82);
   }
 `;
 
@@ -39,3 +38,4 @@ const Wrapper = styled.div`
 `;
 
 export default App;
+

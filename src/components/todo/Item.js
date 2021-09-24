@@ -1,5 +1,5 @@
 import styled, {css} from "styled-components";
-import {FaRegCircle, FaTimesCircle as RemoveItemIcon} from "react-icons/fa";
+import {FaRegCircle, FaTimesCircle} from "react-icons/fa";
 import {useRef, useState} from "react";
 
 // Hint: props로 id, text, onClick 등 (자유)
@@ -24,7 +24,7 @@ export default function Item({content, todoList, setTodoList, TodoList}) {
                 {content}
             </ContentButton>
             <RemoveItemButton value={state} onClick={removeItem}>
-                <RemoveItemIcon />
+                <RemoveItemIcon value={state} />
             </RemoveItemButton>
         </StyledItem>
     );
@@ -35,21 +35,26 @@ const StyledItem = styled.div`
   height: 5rem;
   width: 98%;
   padding: 0 2rem;
-  margin: 0.3rem auto;
+  margin: 0.5rem auto;
   border-radius: 1.5rem;
   font-size: 1.5rem;
   align-items: center;
   transition-duration: 0.2s;
-  background-color: rgb(7, 26, 82);
+  background-color: white;
+  border: 1px solid rgb(57,81, 156);
   
   &:hover{
-    box-shadow: 0 0 4px 2px rgb(215, 58, 246);
+    border-color: #f63af0;
   }
   
   ${props => 
     props.value === 'done' &&
     css`
-      background-color: rgb(7,26,82, 0.5);
+      border-color: rgb(84, 126, 255, 0.1);
+      background-color: rgb(84, 126, 255, 0.1);
+      &:hover{
+        border-color: #f63af0;
+      }
     `}
 `;
 
@@ -59,16 +64,15 @@ const ContentButton = styled.button`
   flex-grow: 1;
   border: none;
   background-color: transparent;
-  color: white;
   
   //text css
   ${props => 
     props.value === 'done' && 
     css`
       text-decoration: line-through;
-      text-decoration-color: #bfcfff;
+      text-decoration-color: rgb(84, 126, 255, 0.5);
       font-style: italic;
-      color: #bfcfff;
+      color: rgb(84, 126, 255, 0.5);
     `}
 `;
 
@@ -76,12 +80,12 @@ const ContentIcon = styled(FaRegCircle)`
   width: 2rem;
   height: 2rem;
   margin-right: 1.5rem;
-  fill: rgb(215, 58, 246);
+  fill: #f63af0;
 
   ${props => 
     props.value === 'done' && 
     css`
-      fill: rgb(0, 91, 210);
+      fill: rgb(84, 126, 255, 0.5);
     `}
 `;
 
@@ -91,9 +95,21 @@ const RemoveItemButton = styled.button`
   width: 1.5rem;
   margin: 0 0.5rem;
   background-color: transparent;
-  
-  svg{
-    fill: white;
+`;
+
+const RemoveItemIcon = styled(FaTimesCircle)`
+  transition-duration: 0.2s;
+  fill: transparent;
+
+  &:hover{
+    fill: rgb(7, 26, 82);
+    
+    ${props =>
+        props.value === 'done' &&
+        css`
+          fill: rgb(57,81, 156);
+    `}
   }
+  
 `;
 

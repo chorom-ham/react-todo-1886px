@@ -44,19 +44,18 @@ const StyledForm = styled.div`
   height: 4rem;
   padding: 1rem;
   align-items: center;
-  margin: 1rem 0;
+  margin: 1rem 0 1.5rem;
 `;
 
 const ItemInput = styled.input`
   ::placeholder {
-    color: #bfcfff;
+    color: #8fabff;
   }
 
   flex-grow: 1;
   margin-right: 1rem;
   border: none;
   outline: none;
-  color: #bfcfff;
   padding-left: 1.5rem;
   font-style: italic;
   background-color: transparent;
@@ -66,7 +65,7 @@ const AddItemButton = styled.button`
   background: transparent;
   border: none;
   transition-duration: 0.2s;
-  color: white;
+  color: #8fabff;
   padding-top: 0.2rem;
   
   &:hover {

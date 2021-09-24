@@ -27,15 +27,19 @@ function Todo() {
 const StyledTodo = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50%;
-  margin: 10rem auto;
+  width: 55%;
+  min-height: 80rem;
+  margin: 5rem auto;
+  background-color: white;
+  border-radius: 3rem;
+  padding: 5rem 3rem 0;
 `;
 
 const Title = styled.h1`
   font-size: 6rem;
   font-weight: 700;
-  color: white;
-  margin: 0;
+  margin: 4rem 1rem 0;
+  color: rgb(7, 26, 82);
 `;
 
 export default Todo;
