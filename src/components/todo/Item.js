@@ -21,7 +21,7 @@ export default function Item({content, todoList, setTodoList, TodoList}) {
         <StyledItem value={state}>
             <ContentButton value={state} onClick={changeState}>
                 <ContentIcon value={state}/>
-                {content}
+                <ContentText>{content}</ContentText>
             </ContentButton>
             <RemoveItemButton value={state} onClick={removeItem}>
                 <RemoveItemIcon value={state} />
@@ -34,9 +34,9 @@ const StyledItem = styled.div`
   display: inline-flex;
   height: fit-content;
   width: 98%;
-  padding: 0 2rem;
-  margin: 0.3rem auto;
-  border-radius: 2rem;
+  padding: 0 0 0 2rem;
+  margin: 0rem auto 0.8rem;
+  border-radius: 1.5rem;
   font-size: 1.5rem;
   align-items: center;
   transition-duration: 0.2s;
@@ -64,10 +64,8 @@ const ContentButton = styled.button`
   flex-grow: 1;
   border: none;
   background-color: transparent;
-  padding: 0.2rem 0;
-  white-space: pre-line;
-  word-wrap: break-word;
-  flex-wrap: nowrap;
+  padding: 1.5rem 0;
+  font-size: 1.5rem;
   
   //text css
   ${props => 
@@ -80,9 +78,15 @@ const ContentButton = styled.button`
     `}
 `;
 
+const ContentText = styled.div`
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  text-align: left;
+`;
+
 const ContentIcon = styled(FaRegCircle)`
-  width: 1.3rem;
-  height: 1.3rem;
+  min-width: 2rem;
+  min-height: 2rem;
   margin-right: 1.5rem;
   fill: #f63af0;
 
@@ -95,24 +99,28 @@ const ContentIcon = styled(FaRegCircle)`
 
 const RemoveItemButton = styled.button`
   border: none;
-  height: 1.5rem;
-  width: 1.5rem;
-  margin: 0 0.5rem;
+  height: 4rem;
+  width: 5rem;
+  margin-left: 0.5rem;
   background-color: transparent;
+
+  &:hover{
+    svg{
+      fill: rgb(7, 26, 82);
+      
+      ${props =>
+              props.value === 'done' &&
+              css`
+          fill: rgb(57,81, 156);
+    `}
+    }
+  }
 `;
 
 const RemoveItemIcon = styled(FaTimesCircle)`
+  width: 1.5rem;
+  height: 1.5rem;
   transition-duration: 0.1s;
   fill: transparent;
-
-  &:hover{
-    fill: rgb(7, 26, 82);
-    
-    ${props =>
-        props.value === 'done' &&
-        css`
-          fill: rgb(57,81, 156);
-    `}
-  }
 `;
 
