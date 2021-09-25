@@ -7,18 +7,21 @@ import styled from "styled-components";
 export default function Form({ todoList, setTodoList }) {
   const [content, setContent] = useState("");
   const inputId = useRef();
-  const nextId = useRef(0);
-
+  const nextId = useRef(1);
   const addItem = () => {
+    console.log(inputId.current.value);
     setContent(inputId.current.value);
+    console.log(content); //console.log(inputId.current.value)와 다르게 나옴 -> item 한 값씩 밀려서 add됨
     const todo = { id: nextId.current, content };
     setTodoList([...todoList, todo]);
+    nextId.current += 1;
   };
 
   return (
     <div>
       <input placeholder="할 일을 입력하세요" ref={inputId} />
-      <button onClick={addItem}>등록</button>
+      <AddButton onClick={addItem}>등록</AddButton>
     </div>
   );
 }
+const AddButton = styled.button``;
