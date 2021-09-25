@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { MdCheck, MdDelete } from "react-icons/md";
 // 각 할 일에 대한 정보
 
 // Hint: props로 id, text, onClick 등 (자유)
-export default function Item({ id, done, text }) {
+export default function Item({ text, todoList, setTodoList, EachTodoList }) {
+  const [checked, setChecked] = useState(false);
+
+  const toggleChecked = () => {
+    setChecked(checked === false ? true : false);
+  };
+
+  const removeTodo = (e) => {
+    setTodoList(todoList.filter((todo) => todo !== text));
+  };
+
   return (
     <TodoItemBlock>
-      <CheckCircle done={done}>{done && <MdCheck />}</CheckCircle>
-      <Text done={done}>{text}</Text>
-      <DeleteButton>
+      <CheckButton value={checked} onClick={toggleChecked}>
+        {checked && <MdCheck />}
+        <Text>{text}</Text>
+      </CheckButton>
+
+      <DeleteButton value={checked} onClick={removeTodo}>
         <MdDelete />
       </DeleteButton>
     </TodoItemBlock>
@@ -23,7 +36,7 @@ const TodoItemBlock = styled.div`
   border: 1px solid black;
 `;
 
-const CheckCircle = styled.div`
+const CheckButton = styled.button`
   width: 3rem;
   height: 3rem;
   font-size: 20px;

@@ -7,12 +7,21 @@ import Item from "./Item";
 export default function Todo() {
   const [todoList, setTodoList] = useState([]);
 
+  const EachTodoList = () => {
+    return todoList.map((text, index) => (
+      <Item
+        text={text}
+        todoList={todoList}
+        setTodoList={setTodoList}
+        reset={EachTodoList}
+      />
+    ));
+  };
+
   return (
     <TodoBlock>
-      <Form />
-      <Item text="할 일 1번" done={true} />
-      <Item text="할 일 2번" done={true} />
-      <Item text="할 일 3번" done={false} />
+      <Form todoList={todoList} setTodoList={setTodoList} />
+      <EachTodoList />
     </TodoBlock>
   );
 }
