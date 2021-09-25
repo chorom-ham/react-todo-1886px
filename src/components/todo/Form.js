@@ -9,9 +9,10 @@ export default function Form({ todoList, setTodoList }) {
   const onChange = (e) => {
     setContent(e.target.value);
   };
-
+  const itemId = useRef();
   const onCreate = (e) => {
-    setTodoList([...todoList, content]);
+    const updatedList = [...todoList, content];
+    setTodoList(updatedList);
     setContent("");
   };
 
@@ -29,6 +30,7 @@ export default function Form({ todoList, setTodoList }) {
         onChange={onChange}
         onKeyDown={onEnter}
         value={content}
+        ref={itemId}
       />
       <AddButton onClick={onCreate}></AddButton>
     </div>
