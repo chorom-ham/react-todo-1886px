@@ -9,7 +9,10 @@ export default function Todo() {
 
   return (
     <div>
-      <Form />
+      <Form todoList={todoList} setTodoList={setTodoList} />
+      {todoList.map((todo) => (
+        <Item todo={todo.content} key={todo.id} />
+      ))}
     </div>
   );
 }
