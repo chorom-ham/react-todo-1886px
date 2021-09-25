@@ -11,11 +11,13 @@ export default function Todo() {
 
   // 새로운 todo를 배열에 추가하고 todo List 업데이트
   const pushTodo = (value) => {
-    const todos = todoList;
-    const todo = { id, value };
-    setId((current) => current + 1);
-    todos.push(todo);
-    setTodoList(todos);
+    if (value) {
+      const todos = todoList;
+      const todo = { id, value };
+      setId((current) => current + 1);
+      todos.push(todo);
+      setTodoList(todos);
+    }
   };
 
   const deleteTodo = (value) => {
