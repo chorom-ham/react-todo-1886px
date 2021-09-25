@@ -132,4 +132,4 @@ export default function Form() {
   );
 }
 
-export default React.memo(TodoCreate);
+export default Form;
