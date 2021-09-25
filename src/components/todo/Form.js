@@ -6,22 +6,33 @@ import styled from "styled-components";
 // 엔터를 눌렀을 때도 투두가 등록되도록 합니다.
 export default function Form({ todoList, setTodoList }) {
   const [content, setContent] = useState("");
-  const inputId = useRef();
-  const nextId = useRef(1);
-  const addItem = () => {
-    console.log(inputId.current.value);
-    setContent(inputId.current.value);
-    console.log(content); //console.log(inputId.current.value)와 다르게 나옴 -> item 한 값씩 밀려서 add됨
-    const todo = { id: nextId.current, content };
-    setTodoList([...todoList, todo]);
-    nextId.current += 1;
+  const onChange = (e) => {
+    setContent(e.target.value);
+  };
+
+  const onCreate = (e) => {
+    setTodoList([...todoList, content]);
+    setContent("");
+  };
+
+  const onEnter = (e) => {
+    if (e.key == "Enter") {
+      onCreate();
+    }
   };
 
   return (
     <div>
-      <input placeholder="할 일을 입력하세요" ref={inputId} />
-      <AddButton onClick={addItem}>등록</AddButton>
+      <Input
+        type={"content"}
+        placeholder={"할 일을 입력하세요"}
+        onChange={onChange}
+        onKeyDown={onEnter}
+        value={content}
+      />
+      <AddButton onClick={onCreate}></AddButton>
     </div>
   );
 }
 const AddButton = styled.button``;
+const Input = styled.input``;
