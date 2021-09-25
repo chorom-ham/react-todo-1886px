@@ -36,16 +36,14 @@ export default function Form({ todoList, setTodoList }) {
       </FormBlock>
       {openForm && (
         <InputBlock>
-          <InputForm>
-            <Input
-              autoFocus
-              placeholder="할 일을 입력한 후, 엔터키를 누르세요."
-              onChange={changeInputText}
-              onKeyDown={enterSubmit}
-              value={value}
-            ></Input>
-            <InputButton onClick={submitItem}>추가</InputButton>
-          </InputForm>
+          <Input
+            autoFocus
+            placeholder={"할 일을 입력한 후, 엔터키를 누르세요."}
+            onChange={changeInputText}
+            onKeyDown={enterSubmit}
+            value={value}
+          />
+          <InputButton onClick={submitItem}>추가</InputButton>
         </InputBlock>
       )}
     </>
@@ -53,7 +51,6 @@ export default function Form({ todoList, setTodoList }) {
 }
 
 const FormBlock = styled.div`
-  border: 1px solid black;
   width: 100%;
   height: 6rem;
   align-items: center;
@@ -101,17 +98,13 @@ const AddButton = styled.button`
 `;
 
 const InputBlock = styled.div`
+  display: flex;
   width: 100%;
-  border: 3px solid red;
   margin-top: 1rem;
   margin-bottom: 1rem;
-`;
-
-const InputForm = styled.form`
-  display: flex;
-  padding: 0.2rem;
+  padding: 1rem;
   justify-content: space-between;
-  background: gray;
+  background-color: #f8e0e6;
 `;
 
 const Input = styled.input`
@@ -119,12 +112,14 @@ const Input = styled.input`
   outline: none;
   box-sizing: border-box;
   padding: 1rem;
+  border: none;
+  border-radius: 1rem;
 `;
 
 const InputButton = styled.button`
   width: 15%;
-
   outline: none;
   border: none;
+  border-radius: 1rem;
   cursor: pointer;
 `;

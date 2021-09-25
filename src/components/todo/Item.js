@@ -17,12 +17,12 @@ export default function Item({ text, todoList, setTodoList, EachTodoList }) {
 
   return (
     <TodoItemBlock>
-      <CheckButton value={checked} onClick={toggleChecked}>
-        {checked && <MdCheck />}
+      <CheckButton done={checked} onClick={toggleChecked}>
+        <CheckCircle done={checked}>{checked && <MdCheck />}</CheckCircle>
         <Text>{text}</Text>
       </CheckButton>
 
-      <DeleteButton value={checked} onClick={removeTodo}>
+      <DeleteButton done={checked} onClick={removeTodo}>
         <MdDelete />
       </DeleteButton>
     </TodoItemBlock>
@@ -31,48 +31,70 @@ export default function Item({ text, todoList, setTodoList, EachTodoList }) {
 
 const TodoItemBlock = styled.div`
   display: flex;
+  width: 100%;
   align-items: center;
+  height: fit-content;
   padding: 1rem;
-  border: 1px solid black;
 `;
 
 const CheckButton = styled.button`
-  width: 3rem;
-  height: 3rem;
-  font-size: 20px;
-  color: red;
-  cursor: pointer;
-  border: 1px solid black;
-  border-radius: 50%;
-  margin-left: 1rem;
-  margin-right: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin-left: 1rem;
+  margin-right: 1.5rem;
+
+  ${(props) =>
+    props.done === true &&
+    css`
+      text-decoration: line-through;
+      font-style: italic;
+      color: gray;
+    `}
+`;
+
+const CheckCircle = styled.div`
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  font-size: 2rem;
+  border-radius: 50%;
+  border: 1px solid darkgray;
+
+  &:hover {
+    border: 1px solid black;
+  }
+
+  ${(props) =>
+    props.done === true &&
+    css`
+      color: #ff0040;
+      border: 2px solid #ff0040;
+    `}
 `;
 
 const Text = styled.div`
   flex: 1;
   font-size: 15px;
-  ${(props) =>
-    props.done &&
-    css`
-      text-decoration: line-through;
-      color: gray;
-    `}
 `;
 
 const DeleteButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   outline: none;
   border: none;
   background-color: transparent;
   color: gray;
   font-size: 20px;
   cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  margin-right: 10px;
-
   &:hover {
     color: #81f7d8;
   }
