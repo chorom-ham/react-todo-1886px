@@ -1,8 +1,37 @@
 import styled from "styled-components";
+import { useState, useRef } from "react";
 
-// Hint: Form, Input, Button
-// 반드시 투두를 등록하는 버튼을 구현합니다.
-// 엔터를 눌렀을 때도 투두가 등록되도록 합니다.
-export default function Form() {
-  return <div>벗들 파이팅 :)</div>;
+export default function Form({ todoList, setTodoList }) {
+  const [inputs, setInputs] = useState([]);
+  const onChange = (e) => {
+    setInputs(e.target.value);
+  };
+
+  const nextId = useRef(1);
+
+  const onCreate = (e) => {
+    const updatedList = [...todoList, inputs];
+    setTodoList(updatedList);
+    setInputs("");
+    nextId.current += 1;
+  };
+
+  const onEnter = (e) => {
+    if (e.key === "Enter") {
+      onCreate();
+    }
+  };
+
+  return (
+    <div>
+      <input
+        type={"text"}
+        placeholder={"type here"}
+        onChange={onChange}
+        onKeyDown={onEnter}
+        value={inputs}
+      />
+      <button onClick={onCreate}>+</button>
+    </div>
+  );
 }
