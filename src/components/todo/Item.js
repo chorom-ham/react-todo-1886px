@@ -34,7 +34,9 @@ const TodoItemBlock = styled.div`
   width: 100%;
   align-items: center;
   height: fit-content;
-  padding: 1rem;
+  padding: 2rem 1rem;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 1rem;
 `;
 
 const CheckButton = styled.button`
