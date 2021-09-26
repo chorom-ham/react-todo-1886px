@@ -13,18 +13,13 @@ export default function Form({ todoList, setTodoList }) {
 
   const changeInputText = (e) => {
     setValue(e.target.value);
-  };
+  }; //handleChange
 
   const submitItem = (e) => {
     const renew = [...todoList, value];
     setTodoList(renew);
     setValue("");
-  };
-
-  const enterSubmit = (e) => {
-    if (e.key == "Enter") {
-      submitItem();
-    }
+    e.preventDefault();
   };
 
   return (
@@ -35,15 +30,14 @@ export default function Form({ todoList, setTodoList }) {
         </AddButton>
       </FormBlock>
       {openForm && (
-        <InputBlock>
+        <InputBlock onSubmit={submitItem}>
           <Input
             autoFocus
             placeholder={"할 일을 입력한 후, 엔터키를 누르세요."}
             onChange={changeInputText}
-            onKeyDown={enterSubmit}
             value={value}
           />
-          <InputButton onClick={submitItem}>추가</InputButton>
+          <InputButton>추가</InputButton>
         </InputBlock>
       )}
     </>
@@ -97,7 +91,7 @@ const AddButton = styled.button`
     `}
 `;
 
-const InputBlock = styled.div`
+const InputBlock = styled.form`
   display: flex;
   width: 100%;
   margin-top: 1rem;
