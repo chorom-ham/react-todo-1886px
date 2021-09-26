@@ -3,7 +3,7 @@ import { IoCloseOutline } from "react-icons/io5";
 
 import styled from "styled-components";
 
-export default function Item({ todoList, deleteTodo, checkStyle }) {
+export default function Item({ todoList, deleteTodo }) {
   const todoLabel = useRef([]);
   const checkbox = useRef([]);
 
