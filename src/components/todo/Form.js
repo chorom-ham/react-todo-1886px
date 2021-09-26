@@ -9,18 +9,28 @@ export default function Form({ todoList, setTodoList }) {
   const [openForm, setOpenForm] = useState(false);
   const toggleInputForm = () => setOpenForm(!openForm);
 
-  const [value, setValue] = useState("");
+  const [newTodo, setNewTodo] = useState("");
 
   const changeInputText = (e) => {
-    setValue(e.target.value);
+    setNewTodo(e.target.value);
   }; //handleChange
 
   const submitItem = (e) => {
-    const renew = [...todoList, value];
+    const renew = [...todoList, newTodo];
     setTodoList(renew);
-    setValue("");
+    setNewTodo("");
     e.preventDefault();
   };
+
+  // const submitItem = (e) => {
+  //   const renew = [
+  //     ...todoList,
+  //     { title: newTodo, timeStamp: new Date().toLocaleString() },
+  //   ];
+  //   setTodoList(renew);
+  //   setNewTodo("");
+  //   e.preventDefault();
+  // };
 
   return (
     <>
@@ -35,7 +45,7 @@ export default function Form({ todoList, setTodoList }) {
             autoFocus
             placeholder={"할 일을 입력한 후, 엔터키를 누르세요."}
             onChange={changeInputText}
-            value={value}
+            value={newTodo}
           />
           <InputButton>추가</InputButton>
         </InputBlock>

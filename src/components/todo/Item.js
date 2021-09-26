@@ -8,7 +8,7 @@ export default function Item({ text, todoList, setTodoList, EachTodoList }) {
   const [checked, setChecked] = useState(false);
 
   const toggleChecked = () => {
-    setChecked(checked === false ? true : false);
+    setChecked(!checked);
   };
 
   const removeTodo = (e) => {
