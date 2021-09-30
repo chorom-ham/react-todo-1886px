@@ -6,8 +6,16 @@ import Item from "./Item";
 
 export default function Todo() {
   const [todoList, setTodoList] = useState([]);
+  const deleteItem = (index) => {
+    setTodoList(todoList.filter((item, _index) => _index !== index));
+  };
   const items = todoList.map((item, index) => (
-    <Item key={index} title={item.title} index={index} />
+    <Item
+      key={index}
+      title={item.title}
+      index={index}
+      deleteItem={deleteItem}
+    />
   ));
   return (
     <Wrapper>
