@@ -14,7 +14,7 @@ export default function Form({ todoList, setTodoList }) {
       setTodoList([...todoList, newItem]);
     }
   };
-  const getValue = (e) => {
+  const handleChange = (e) => {
     setItemTitle(e.target.value);
   };
   return (
@@ -22,7 +22,7 @@ export default function Form({ todoList, setTodoList }) {
       <InputBox
         placeholder="할 일을 입력하세요"
         value={itemTitle}
-        onChange={getValue}
+        onChange={handleChange}
       ></InputBox>
       <AddButton>+</AddButton>
     </TodoForm>
