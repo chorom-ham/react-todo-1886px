@@ -21,12 +21,54 @@ export default function Form({ todoList, setTodoList }) {
   };
   return (
     <TodoForm onSubmit={addItem}>
-      <InputBox value={itemTitle} onChange={getValue} id={itemId}></InputBox>
-      <AddButton>추가</AddButton>
+      <InputBox
+        placeholder="할 일을 입력하세요"
+        value={itemTitle}
+        onChange={getValue}
+        id={itemId}
+      ></InputBox>
+      <AddButton>+</AddButton>
     </TodoForm>
   );
 }
 
-const TodoForm = styled.form``;
-const InputBox = styled.input``;
-const AddButton = styled.button``;
+const TodoForm = styled.form`
+  background-color: #f1f7e7;
+  border-radius: 1rem;
+  border: 0.5rem solid;
+  border-color: #cee5d0;
+  width: 50rem;
+  height: 7rem;
+  margin: 2rem auto;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const InputBox = styled.input`
+  padding: 1rem;
+  height: 4rem;
+  border-radius: 1rem;
+  margin-left: 1rem;
+  width: 40rem;
+  border: solid;
+  border-color: #b5cda3;
+`;
+const AddButton = styled.button`
+  margin-left: 3rem;
+  margin-right: 1rem;
+  height: 4rem;
+  background-color: #fffff;
+  border-radius: 50%;
+  border: solid;
+  border-color: #b5cda3;
+  @font-face {
+    font-family: "ELAND_Choice_M";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/ELAND_Choice_M.woff")
+      format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  font-family: "ELAND_Choice_M";
+  font-size: 3rem;
+`;

@@ -16,7 +16,10 @@ export default function Item({ title, index, deleteItem }) {
     </Wrapper>
   );
 }
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  display: flex;
+  padding-bottom: 1rem;
+`;
 const Text = styled.div`
   ${(props) =>
     props.isChecked &&
@@ -24,4 +27,10 @@ const Text = styled.div`
   text-decoration: line-through;
   `}
 `;
-const DeleteButton = styled.button``;
+const DeleteButton = styled.button`
+  margin-left: 1rem;
+  background-color: #cee5d0;
+  border-radius: 1rem;
+  border: solid;
+  border-color: #b5cda3;
+`;

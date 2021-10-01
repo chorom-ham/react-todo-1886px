@@ -5,11 +5,19 @@ export default function Header() {
 }
 
 const StlyedHeader = styled.header`
-  background-color: #00462a;
+  background-color: #ff7878;
   color: #ffffff;
+  @font-face {
+    font-family: "SLEIGothicTTF";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SLEIGothicTTF.woff")
+      format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  font-family: "SLEIGothicTTF";
   font-size: 2rem;
   height: 7rem;
   display: flex;
   align-items: center;
-  padding-left: 5rem;
+  padding-left: 3rem;
 `;
