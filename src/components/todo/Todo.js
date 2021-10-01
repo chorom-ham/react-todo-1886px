@@ -11,7 +11,7 @@ export default function Todo() {
   };
   const items = todoList.map((item, index) => (
     <Item
-      key={index}
+      key={item.timeStamp}
       title={item.title}
       index={index}
       deleteItem={deleteItem}
@@ -25,14 +25,6 @@ export default function Todo() {
   );
 }
 const Wrapper = styled.div`
-  @font-face {
-    font-family: "ELAND_Choice_M";
-    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/ELAND_Choice_M.woff")
-      format("woff");
-    font-weight: normal;
-    font-style: normal;
-  }
-  font-family: "ELAND_Choice_M";
   font-size: 2.2rem;
 `;
 const ItemContainer = styled.div`

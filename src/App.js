@@ -6,6 +6,13 @@ import Todo from "./components/todo/Todo";
 const GlobalStyle = createGlobalStyle`
   *{  
     box-sizing: border-box;
+    @font-face {
+      font-family: "ELAND_Choice_M";
+      src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/ELAND_Choice_M.woff")
+        format("woff");
+      font-weight: normal;
+      font-style: normal;
+    }font-family: "ELAND_Choice_M";
   }
   html {
     font-size : 10px;

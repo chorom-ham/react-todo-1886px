@@ -6,8 +6,7 @@ import styled from "styled-components";
 // 엔터를 눌렀을 때도 투두가 등록되도록 합니다.
 export default function Form({ todoList, setTodoList }) {
   const [itemTitle, setItemTitle] = useState("");
-  const [itemId, setItemId] = useState();
-  const newItem = { title: itemTitle, id: itemId };
+  const newItem = { title: itemTitle, timeStamp: new Date().toLocaleString() };
   const addItem = (e) => {
     e.preventDefault();
     if (itemTitle !== "") {
@@ -17,7 +16,6 @@ export default function Form({ todoList, setTodoList }) {
   };
   const getValue = (e) => {
     setItemTitle(e.target.value);
-    setItemId(e.target.id);
   };
   return (
     <TodoForm onSubmit={addItem}>
@@ -25,7 +23,6 @@ export default function Form({ todoList, setTodoList }) {
         placeholder="할 일을 입력하세요"
         value={itemTitle}
         onChange={getValue}
-        id={itemId}
       ></InputBox>
       <AddButton>+</AddButton>
     </TodoForm>
@@ -62,13 +59,5 @@ const AddButton = styled.button`
   border-radius: 50%;
   border: solid;
   border-color: #b5cda3;
-  @font-face {
-    font-family: "ELAND_Choice_M";
-    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/ELAND_Choice_M.woff")
-      format("woff");
-    font-weight: normal;
-    font-style: normal;
-  }
-  font-family: "ELAND_Choice_M";
   font-size: 3rem;
 `;
