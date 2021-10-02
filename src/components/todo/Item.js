@@ -1,18 +1,17 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
-// Hint: props로 id, text, onClick 등 (자유)
 export default function Item({ title, index, deleteItem }) {
   const [isChecked, setIsChecked] = useState(false);
 
   const toggleChecked = () => {
-    setIsChecked(!isChecked); // 현재 todoState 값의 반대로 설정
+    setIsChecked(!isChecked);
   };
 
   return (
-    <Wrapper onClick = {toggleChecked}>
-      <Text isChecked = {isChecked}>
-        {index + 1}. {title} {/*순서 하나 늘리고 todo내용 출력 */}
+    <Wrapper onClick={toggleChecked}>
+      <Text isChecked={isChecked}>
+        {index + 1}. {title}
       </Text>
       <DeleteButton type="button" onClick={() => deleteItem(index)}>
         X
@@ -20,7 +19,6 @@ export default function Item({ title, index, deleteItem }) {
     </Wrapper>
   );
 }
-
 
 const Wrapper = styled.div`
   display: flex;
