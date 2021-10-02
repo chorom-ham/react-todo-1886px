@@ -1,50 +1,42 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-// Hint: props로 id, text, onClick 등 (자유)
-function User({ todo, onRemove }) {
-  const [toggle, setToggle] = useState(false);
+export default function Item({ title, index, deleteItem }) {
+  const [isChecked, setIsChecked] = useState(false);
 
-  const onToggle = () => {
-    setToggle(toggle === false ? true : false);
+  const toggleChecked = () => {
+    setIsChecked(!isChecked);
   };
 
   return (
-    <Wrapper1>
-      <Text value={toggle} onClick={onToggle}>
-        {todo.text}
+    <Wrapper onClick={toggleChecked}>
+      <Text isChecked={isChecked}>
+        {index + 1}. {title}
       </Text>
-      <DeleteButton onClick={() => onRemove(todo.id)}>x</DeleteButton>
-    </Wrapper1>
+      <DeleteButton type="button" onClick={() => deleteItem(index)}>
+        X
+      </DeleteButton>
+    </Wrapper>
   );
 }
 
-export default function Item({ todoList, onRemove }) {
-  return (
-    <div>
-      {todoList.map((todo) => (
-        <User todo={todo} key={todo.id} onRemove={onRemove} />
-      ))}
-    </div>
-  );
-}
-const Wrapper1 = styled.div`
-  text-align: center;
-  margin-left: 7rem;
-  margin-top: 1rem;
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
-const Text = styled.text`
-  font-size: 1.5rem;
-  ${(todo) =>
-    todo.value === true
-      ? `text-decoration: line-through;`
-      : `text-decoration: none;`}
+const Text = styled.p`
+  font-size: 2rem;
+  ${(props) =>
+    props.isChecked && // && 앞에 있는 것이 true명 밑에 있는 코드가 실행 된다.
+    `
+    text-decoration: line-through;
+    color: #ccc;
+  `}
 `;
 
 const DeleteButton = styled.button`
-  margin-left: 0.5rem;
-  background-color: darkgreen;
-  color: yellow;
-  border: 0.2rem;
+  width: fit-content;
+  height: fit-content;
+  margin-left: 1rem;
 `;

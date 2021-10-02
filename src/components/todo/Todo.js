@@ -1,47 +1,51 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 import Form from "./Form";
 import Item from "./Item";
 
 export default function Todo() {
-  const [inputs, setInputs] = useState({
-    text: "",
-  });
-
-  const { text } = inputs;
-
-  const onChange = (e) => {
-    const { name, value } = e.target;
-    setInputs({
-      ...inputs,
-      [name]: value,
-    });
-  };
-
   const [todoList, setTodoList] = useState([]);
-  const nextId = useRef(0);
 
-  const onCreate = () => {
-    const todo = {
-      id: nextId.current,
-      text,
-    };
-    setTodoList(todoList.concat(todo));
-
-    setInputs({
-      text: "",
-    });
-    nextId.current += 1;
+  const deleteItem = (indexToBeDeleted) => {
+    setTodoList(todoList.filter((item, index) => index !== indexToBeDeleted));
   };
 
-  const onRemove = (id) => {
-    setTodoList(todoList.filter((todo) => todo.id !== id));
-  };
+  const renderTodoItems = todoList.map((item, index) => (
+    <Item
+      key={item.timeStamp + item.title}
+      title={item.title}
+      index={index}
+      deleteItem={deleteItem}
+    />
+  ));
+
   return (
-    <>
-      <Form text={text} onChange={onChange} onCreate={onCreate} />
-      <Item todoList={todoList} onRemove={onRemove} />
-    </>
+    <Wrapper>
+      <Form todoList={todoList} setTodoList={setTodoList} />
+      <ItemContainer>
+        <Heading>Todo List</Heading>
+        {renderTodoItems}
+      </ItemContainer>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 10rem;
+`;
+
+const Heading = styled.h2`
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+`;
+
+const ItemContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.5rem;
+`;

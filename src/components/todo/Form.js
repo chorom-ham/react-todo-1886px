@@ -1,62 +1,47 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-// Hint: Form, Input, Button
-// 반드시 투두를 등록하는 버튼을 구현합니다.
-// 엔터를 눌렀을 때도 투두가 등록되도록 합니다.
-export default function Form({ text, onChange, onCreate }) {
-  const onKeyPress = (e) => {
-    if (e.key == "Enter") {
-      onCreate();
+export default function Form({ todoList, setTodoList }) {
+  const [todoTitle, setTodoTitle] = useState("");
+
+  const addTodoItem = (event) => {
+    event.preventDefault(); // onSubmit, onClick 함수가 실행되면 자동적으로 페이지가 새로고침 되는데 새로고치 하지 말라
+
+    if (todoTitle !== "") {
+      setTodoTitle("");
+      setTodoList([
+        ...todoList, // 배열 안에 있는 아이템들을 펼쳐주는 것 (spread), 넣어주기
+        { title: todoTitle, timeStamp: new Date().toLocaleString() },
+      ]);
     }
   };
+
+  const handleChange = (event) => {
+    setTodoTitle(event.target.value);
+  };
+
   return (
-    <Wrapper>
-      <InputText
-        name="text"
-        placeholder="할 일을 입력하세요"
-        onChange={onChange}
-        onKeyDown={onKeyPress}
-        value={text}
-      />
-      <AddButton onClick={onCreate}>추가</AddButton>
-      <Title>할 일 목록</Title>
-    </Wrapper>
+    <TodoForm onSubmit={addTodoItem}>
+      <TodoInput value={todoTitle} onChange={handleChange}></TodoInput>
+      <AddButton>추가</AddButton>
+    </TodoForm>
   );
 }
 
-const Wrapper = styled.div`
-  margin: 4rem;
+const TodoForm = styled.form`
+  display: flex;
   width: 100%;
-  height: 10rem;
-  text-align: center;
-`;
-
-const InputText = styled.input`
-  width: 30rem;
-  height: 4rem;
-  border-width: 0.2rem;
-  border: 2rem;
-`;
-
-const AddButton = styled.button`
-  font-size: 1.5rem;
-  width: 7rem;
-  height 4rem;
-  color: yellow;
-  border: 0;
-  background-color: green;
-`;
-
-const Title = styled.h1`
-  margin: 3rem;
-  font-size: 3rem;
-  color: darkgreen;
+  height: 5rem;
 `;
 
 const TodoInput = styled.input`
-  width: 100%;
-  height: 5rem;
-  border: 0.8rem solid #00462a;
-  padding-left: 1rem;
+  width: 90%;
+  padding: 0 1rem;
+  font-size: 2rem;
+`;
+
+const AddButton = styled.button`
+  width: 10%;
+  margin-left: 1rem;
+  font-size: 2rem;
 `;
