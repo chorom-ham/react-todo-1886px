@@ -10,7 +10,7 @@ export default function Todo() {
   const [todoList, setTodoList] = useState([]);
 
   const deleteItem = (index) => {
-    setTodoList(todoList.filter((item, task) => task !== index));
+    setTodoList(todoList.filter((item, _index) => _index !== index));
   };
 
   const renderTodoItems = todoList.map((item, index ) => (
