@@ -4,8 +4,10 @@ import Header from "./components/Header.js";
 import Todo from "./components/todo/Todo";
 
 const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
   *{  
     box-sizing: border-box;
+    font-family: 'Nanum Gothic', sans-serif;
   }
   html {
     font-size : 10px;
